@@ -9,8 +9,8 @@
         </div>
     </div>
     <div class='feeds'>
-        <div (click)='loadActivities()'>me</div>
-        <div (click)='loadActivitiesFollowing()'>following</div>
+        <div class='feed' (click)='loadActivities()'>me</div>
+        <div class='feed' (click)='loadActivitiesFollowing()'>following</div>
     </div>
 
     <ul>
@@ -22,6 +22,11 @@
             <p>
                 {{activity.distanceKm | number : '1.2-2'}} km, {{activity.startTime}}
             </p>
+            <div class='distance-component'>
+                <div *ngFor='let step of activity.steps' class='distance-step' [ngClass]='getStepColor(step)'>
+
+                </div>
+            </div>
         </li>
     </ul>
 

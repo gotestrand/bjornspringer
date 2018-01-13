@@ -26,8 +26,27 @@
                 background: #eee;
             }
         }
+        .feeds {
+            padding: 10px 0 10px 0;
+            @include flexbox();
+            @include justify-content(center);
+            .feed {
+                @include flexbox();
+                padding: 5px 10px;
+                text-transform: uppercase;
+                border: 1px solid #ddd;
+                &:hover {
+                    background: #ddd;
+                    border-color: #999;
+                    cursor: pointer;
+                }
+                &:last-child {
+                    margin-left: 5px;
+                }
+            }
+        }
         ul {
-            padding: 20px;
+            padding: 10px 20px 20px 20px;
             li {
                 padding: 5px 0;
                 cursor: pointer;
@@ -40,6 +59,25 @@
                     font-size: 14px;
                     color: #333;
                     line-height: 24px;
+                }
+                .distance-component {
+                    @include flexbox();
+                    .distance-step {
+                        @include flexbox();
+                        width: 10px;
+                        height: 5px;
+                        background: #aaa;
+                        margin-right: 2px;
+                        &.longer {
+                            background: #3a3;
+                        }
+                        &.half-marathon {
+                            background: #aa3;
+                        }
+                        &.pro {
+                            background: #933;
+                        }
+                    }
                 }
             }
         }

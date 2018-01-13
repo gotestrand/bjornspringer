@@ -2,6 +2,7 @@ import { Athlete } from "./athlete";
 import { Map } from "./map";
 import { AppSettings } from "../../app-settings";
 import * as moment from 'moment';
+import * as _ from 'lodash';
 
 export class Activity {
     achievement_count: number;
@@ -57,6 +58,20 @@ export class Activity {
     }
     public get startTime(): moment.Moment {
         return moment(this.start_date_local, moment.ISO_8601);
+    }
+    private _steps;
+    public get steps() {
+        if (this._steps) {
+            return this._steps;
+        }
+        let kmCount = Math.ceil(this.distance / 1000);
+        let array = new Array(kmCount);
+        _.each(array, (km, index) => {
+            array[index] = {km: index+1};
+        });
+        this._steps = array;
+        return this._steps;
+        
     }
     public get mapThumbnail(): string {
         

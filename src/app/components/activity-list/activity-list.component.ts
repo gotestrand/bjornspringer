@@ -72,4 +72,17 @@ export class ActivityListComponent implements OnInit {
 
   }
 
+  public getStepColor(step) {
+    
+    if (step.km <= 10) {
+      return 'startup';
+    } else if (step.km <= 15) {
+      return 'longer';
+    } else if (step.km <= 22) {
+      return 'half-marathon';
+    } else {
+      return 'pro';
+    }
+  }
+
 }
