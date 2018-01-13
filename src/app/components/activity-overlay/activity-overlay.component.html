@@ -1,0 +1,9 @@
+<div *ngIf='activity'>
+    <p>
+        {{activity.distance}} meters <br/> {{activity.gear?.name}}
+        <br/> {{activity.total_elevation_gain}} höjdmeter
+
+    </p>
+
+    <app-activity-elevation [activity]='activity'></app-activity-elevation>
+</div>

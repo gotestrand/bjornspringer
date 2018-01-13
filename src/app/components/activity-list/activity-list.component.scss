@@ -1,0 +1,47 @@
+@import '../../styles/_flexbox';
+@import '../../styles/_variables';
+:host {
+    display: block;
+    .list-view {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 400px;
+        background: #fff;
+        overflow-y: scroll;
+        .athlete-header {
+            // padding: 20px;
+            width: 100%;
+            @include flexbox();
+            .profile-picture {
+                @include flexbox();
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            .profile-info {
+                @include flex-grow(1);
+                background: #eee;
+            }
+        }
+        ul {
+            padding: 20px;
+            li {
+                padding: 5px 0;
+                cursor: pointer;
+                h4 {
+                    font-weight: 400;
+                    font-size: 16px;
+                }
+                p {
+                    font-weight: 300;
+                    font-size: 14px;
+                    color: #333;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+}
